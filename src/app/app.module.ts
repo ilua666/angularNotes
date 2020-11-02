@@ -4,10 +4,12 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TagHighlightPipe } from './tag-highlight.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
+    TagHighlightPipe,
   ],
   imports: [
     BrowserModule,

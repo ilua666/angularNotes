@@ -1,10 +1,13 @@
 <div *ngIf="currNote">
+    <div #editor contenteditable="true" [innerHtml]="currNote.text|tagHighlight" (input)="onDivTextChange($event.target)"></div>
     <label>Text:</label>
-    <input [(ngModel)]="currNote.text"/>
+    <input [(ngModel)]="currNote.text" (ngModelChange)="onTextChange(currNote)"/>
 </div>
 <div class="wrapper">
     <div *ngFor="let note of notes" (click)="onSelect(note)">
-        {{note.text}}
+        <div [innerHtml]="note.text|tagHighlight">
+
+        </div>
         <div *ngFor="let tag of note.tags" (click)="onSelectTag(tag)">
             {{tag}}
         </div>
